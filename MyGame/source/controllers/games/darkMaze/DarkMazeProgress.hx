@@ -5,7 +5,7 @@ import models.darkMaze.LevelData;
 
 class DarkMazeProgress{
     
-    public static inline var MAX_LIVES:Int = 1;
+    public static inline var MAX_LIVES:Int = 3;
 
     public static var lives:Int = MAX_LIVES;
     public static var currentLevel:Int = 1;

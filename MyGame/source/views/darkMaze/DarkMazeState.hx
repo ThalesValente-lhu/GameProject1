@@ -7,6 +7,7 @@ import flixel.util.FlxColor;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import openfl.utils.Assets;
+import flixel.util.FlxSpriteUtil;
 
 import models.darkMaze.Tile;
 import models.darkMaze.GameMap;
@@ -30,8 +31,8 @@ class DarkMazeState extends FlxState{
 	private var allTiles:Array<Tile>;
 	private var exitTile:Tile;
 	private var map:GameMap;
-	private var startPlayerX:Int = 60;
-	private var startPlayerY:Int = 50;
+	private var startPlayerX:Float;
+	private var startPlayerY:Float;
 
 	//Player
 	private var player:Player;
@@ -59,17 +60,32 @@ class DarkMazeState extends FlxState{
 	override public function create(){
 		super.create();
 
-		if (FlxG.sound.music == null){
-		    FlxG.sound.playMusic("assets/music/darkMaze/background.ogg",0.3,true);
-		}
+		var background = new FlxSprite(0,0);
+		background.loadGraphic(AssetPaths.darkMazeBackground__png,true,FlxG.width, FlxG.height);
+		add(background);
 
 		allTiles = [];
 		map = LevelData.getMap(DarkMazeProgress.currentLevel);
 
+		var mapWidth = map.data[0].length * TILE_SIZE
+	    	+ (map.data[0].length - 1) * 5;
+
+		var mapHeight = map.data.length * TILE_SIZE
+		    + (map.data.length - 1) * 5;
+
+		startPlayerX = (FlxG.width - mapWidth) / 2;
+		startPlayerY = (FlxG.height - mapHeight) / 2 + 20;
+
+		var darknessBack = new FlxSprite((FlxG.width - mapWidth) / 2, (FlxG.height - mapHeight) / 2 + 20);
+		darknessBack.makeGraphic(mapWidth, mapHeight, FlxColor.BLACK);
+		add(darknessBack);
+
+		createMapBorder();
+
 		for (row in 0...map.data.length) {
 			for (col in 0...map.data[row].length) {
-				var startX = col*(TILE_SIZE+5)+startPlayerX;
-				var startY = row*(TILE_SIZE+5)+startPlayerY;
+				var startX = col*(TILE_SIZE+5) + startPlayerX;
+				var startY = row*(TILE_SIZE+5) + startPlayerY;
 
 				var tileType = map.data[row][col];
 				var canWalk = tileType != 0;
@@ -89,14 +105,14 @@ class DarkMazeState extends FlxState{
 			}
 		}
 
-		darkness = new FlxSprite(0, 0);
-		darkness.makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		darkness = new FlxSprite((FlxG.width - mapWidth) / 2, (FlxG.height - mapHeight) / 2 + 20);
+		darkness.makeGraphic(mapWidth, mapHeight, FlxColor.BLACK);
 		darkness.visible = false;
 		add(darkness);
 
-		timerText = new FlxText(10, 0, 400, "", 20);
+		timerText = new FlxText(10, 20, 400, "", 20);
 		add(timerText);
-		livesText = new FlxText(10, 20, 400, "", 20);
+		livesText = new FlxText(10, 40, 400, "", 20);
 		add(livesText);
 		updateLivesText();
 
@@ -106,10 +122,18 @@ class DarkMazeState extends FlxState{
 
 		nextLevelButton = new FlxButton(300, 10, "Next Level", goToNextLevel);
 		nextLevelButton.visible = false;
+		nextLevelButton.setGraphicSize(150,25);
+        nextLevelButton.updateHitbox();
+        nextLevelButton.label.size = 15;
+        nextLevelButton.label.fieldWidth = 150;
 		add(nextLevelButton);
 
 		menuButton = new FlxButton(400, 10, "Level Select", returnToMenu);
 		menuButton.visible = false;
+		menuButton.setGraphicSize(150,25);
+        menuButton.updateHitbox();
+        menuButton.label.size = 15;
+        menuButton.label.fieldWidth = 150;
 		add(menuButton);
 
 		timer = previewDuration;
@@ -288,10 +312,47 @@ class DarkMazeState extends FlxState{
 	}
 
 	private function centerPlayer(row:Int, col:Int):Void{
-	    var tileX = 40 + col * (TILE_SIZE + 5);
-	    var tileY = 10 + row * (TILE_SIZE + 5);
+	    var tileX = startPlayerX + col * (TILE_SIZE + 5);
+	    var tileY = startPlayerY + row * (TILE_SIZE + 5);
 
 	    player.x = tileX + (TILE_SIZE - player.width) / 2;
-	    player.y = tileY + (TILE_SIZE - player.height) / 2 + 40;
+	    player.y = tileY + (TILE_SIZE - player.height) / 2;
+	}
+
+	private function createMapBorder():Void{
+	    var mapWidth = map.data[0].length * TILE_SIZE
+	        + (map.data[0].length - 1) * 5;
+
+	    var mapHeight = map.data.length * TILE_SIZE
+	        + (map.data.length - 1) * 5;
+
+	    var padding = 5;
+	    var border = new FlxSprite(
+	        startPlayerX - padding,
+	        startPlayerY - padding
+	    );
+
+	    border.makeGraphic(
+	        Std.int(mapWidth + padding * 2),
+	        Std.int(mapHeight + padding * 2),
+	        FlxColor.TRANSPARENT
+	    );
+
+	    FlxSpriteUtil.drawRoundRect(
+	        border,
+	        0,
+	        0,
+	        border.width,
+	        border.height,
+	        18,
+	        18,
+	        FlxColor.TRANSPARENT,
+	        {
+	            color: FlxColor.WHITE,
+	            thickness: 3
+	        }
+	    );
+
+	    add(border);
 	}
 }

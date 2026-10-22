@@ -3,6 +3,7 @@ package views.darkMaze;
 
 import flixel.FlxState;
 import flixel.FlxG;
+import flixel.FlxSprite;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import controllers.games.darkMaze.DarkMazeProgress;
@@ -12,6 +13,12 @@ class DarkMazeSelectState extends FlxState{
 
     override public function create():Void{
         super.create();
+
+        FlxG.sound.playMusic("assets/music/darkMaze/background.ogg",0.3,true);
+
+        var background = new FlxSprite(0,0);
+        background.loadGraphic(AssetPaths.darkMazeBackground__png,true,FlxG.width, FlxG.height);
+        add(background);
 
         var title = new FlxText(
             0, 30, FlxG.width,
@@ -32,6 +39,7 @@ class DarkMazeSelectState extends FlxState{
             30,
             "Back to other games",
             function(){
+                FlxG.sound.music.stop();
                 FlxG.switchState(()-> new controllers.MenuState());
             }
             );

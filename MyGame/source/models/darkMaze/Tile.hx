@@ -25,6 +25,7 @@ class Tile extends FlxSprite{
         }
         else{
             this.makeGraphic(size,size,FlxColor.BLACK);
+            this.visible = false;
         }
     }
 
