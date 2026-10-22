@@ -5,6 +5,7 @@ import flixel.FlxState;
 import models.GameData;
 import views.MenuUI;
 import controllers.games.CardMemoryGame;
+import views.darkMaze.DarkMazeInitialState;
 
 class MenuState extends FlxState {
     private var gameList:Array<GameData>;
@@ -14,7 +15,8 @@ class MenuState extends FlxState {
 
         // Model Initialization
         gameList = [
-            new GameData("Card Match Memory", CardMemoryGame)
+            new GameData("Card Match Memory", CardMemoryGame),
+            new GameData("Dark Maze",DarkMazeInitialState)
         ];
 
         // View Initialization
