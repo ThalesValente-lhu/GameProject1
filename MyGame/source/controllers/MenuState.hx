@@ -10,6 +10,8 @@ class MenuState extends FlxState {
     private var gameList:Array<GameData>;
 
     override public function create():Void {
+        FlxG.cameras.bgColor = 0xFF0D0B18;
+
         super.create();
 
         // Model Initialization
@@ -24,7 +26,6 @@ class MenuState extends FlxState {
 
     // Controller Action: Handle State Transition
     private function launchGame(targetState:Class<FlxState>):Void {
-        var nextState = Type.createInstance(targetState, []);
-        FlxG.switchState(nextState);
+        FlxG.switchState(() -> Type.createInstance(targetState, []));
     }
 }
