@@ -22,7 +22,7 @@ class DarkMazeInitialState extends FlxState
         panel.makeGraphic(FlxG.width - 100,FlxG.height - 70,FlxColor.fromRGB(40, 46, 62));
         add(panel);
 
-        var title = new FlxText(70, 50, FlxG.width - 140,"DARK MAZE",16);
+        var title = new FlxText(70, 50, FlxG.width - 140,"DARK MAZE",20);
         title.alignment = "center";
         title.color = FlxColor.YELLOW;
         add(title);
@@ -31,34 +31,38 @@ class DarkMazeInitialState extends FlxState
             "Can you escape the darkness?\n\n" +
             "Memorize the bridge before the lights go out. " +
             "Then find your way to the exit using your memory. " +
-            "One wrong step can send you into a pit!",12
+            "One wrong step can send you into a pit!",18
         );
         premise.alignment = "center";
         premise.color = FlxColor.WHITE;
         add(premise);
 
-        var controlsTitle = new FlxText(90, 205, FlxG.width - 180,"CONTROLS",12);
+        var controlsTitle = new FlxText(90, 215, FlxG.width - 180,"CONTROLS",20);
         controlsTitle.alignment = "center";
         controlsTitle.color = FlxColor.YELLOW;
         add(controlsTitle);
 
-        var controls = new FlxText(70, 225, FlxG.width - 100,
+        var controls = new FlxText(70, 255, FlxG.width - 100,
             "ARROW KEYS  -  Move up, down, left, and right\n\n" +
             "MEMORIZE    -  Study the safe path before darkness\n\n" +
             "OBJECTIVE   -  Reach the exit without falling\n\n" +
             "LIVES       -  You have 3 lives. Lose them all and\n" +
-            "                   your progress resets to Level 1.",12);
+            "                   your progress resets to Level 1.",18);
         controls.color = FlxColor.WHITE;
         add(controls);
 
         var continueButton = new FlxButton(
-            FlxG.width / 2 - 60,
+            FlxG.width / 2 - 80,
             FlxG.height - 95,
             "Continue",
             function(){
                 FlxG.switchState(() -> new DarkMazeSelectState());
             }
         );
+        continueButton.setGraphicSize(150,40);
+        continueButton.updateHitbox();
+        continueButton.label.size = 20;
+        continueButton.label.fieldWidth = 150;
         add(continueButton);
     }
 }

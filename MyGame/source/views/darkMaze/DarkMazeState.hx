@@ -26,11 +26,11 @@ enum Phase{
 class DarkMazeState extends FlxState{
 
 	//Map variables
-	private var TILE_SIZE:Int = 60;
+	private var TILE_SIZE:Int = 70;
 	private var allTiles:Array<Tile>;
 	private var exitTile:Tile;
 	private var map:GameMap;
-	private var startPlayerX:Int = 10;
+	private var startPlayerX:Int = 60;
 	private var startPlayerY:Int = 50;
 
 	//Player
@@ -60,7 +60,7 @@ class DarkMazeState extends FlxState{
 		super.create();
 
 		if (FlxG.sound.music == null){
-		    FlxG.sound.playMusic("assets/music/background.ogg",0.3,true);
+		    FlxG.sound.playMusic("assets/music/darkMaze/background.ogg",0.3,true);
 		}
 
 		allTiles = [];
@@ -288,7 +288,7 @@ class DarkMazeState extends FlxState{
 	}
 
 	private function centerPlayer(row:Int, col:Int):Void{
-	    var tileX = 10 + col * (TILE_SIZE + 5);
+	    var tileX = 40 + col * (TILE_SIZE + 5);
 	    var tileY = 10 + row * (TILE_SIZE + 5);
 
 	    player.x = tileX + (TILE_SIZE - player.width) / 2;
