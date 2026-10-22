@@ -1,0 +1,22 @@
+# HaxeFlixel Build Output
+export/
+
+# IDE & Editor Specific Files
+.hxdefs
+.vshaxe/
+.vscode/
+.idea/
+*.hxml.target
+*.suo
+*.user
+*.userosv
+*.sln
+*.vcxproj
+*.vcxproj.filters
+
+# Haxe / Haxelib Temporary Files
+.haxelib/
+
+# OS-Generated Files
+.DS_Store
+Thumbs.db
