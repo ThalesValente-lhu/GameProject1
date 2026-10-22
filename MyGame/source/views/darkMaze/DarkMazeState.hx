@@ -157,19 +157,19 @@ class DarkMazeState extends FlxState{
 				timer -= elapsed;
 				timerText.text = "Time: " + Math.ceil(timer);
 
-				if (FlxG.keys.justPressed.LEFT) {
+				if (FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.A) {
 					player.changeDirection("left");
 					movePlayerTo(player.getRow(), player.getCol()-1);
 				}
-				else if (FlxG.keys.justPressed.RIGHT) {
+				else if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.D) {
 					player.changeDirection("right");
 					movePlayerTo(player.getRow(), player.getCol()+1);
 				}
-				else if (FlxG.keys.justPressed.UP) {
+				else if (FlxG.keys.justPressed.UP || FlxG.keys.justPressed.W) {
 					player.changeDirection("up");
 					movePlayerTo(player.getRow()-1, player.getCol());
 				}
-				else if (FlxG.keys.justPressed.DOWN) {
+				else if (FlxG.keys.justPressed.DOWN || FlxG.keys.justPressed.S) {
 					player.changeDirection("down");
 					movePlayerTo(player.getRow()+1, player.getCol());
 				}

@@ -43,7 +43,7 @@ class DarkMazeInitialState extends FlxState
         add(controlsTitle);
 
         var controls = new FlxText(70, 255, FlxG.width - 100,
-            "ARROW KEYS  -  Move up, down, left, and right\n\n" +
+            "ARROW KEYS/WASD  -  Move up, down, left, and right\n\n" +
             "MEMORIZE    -  Study the safe path before darkness\n\n" +
             "OBJECTIVE   -  Reach the exit without falling\n\n" +
             "LIVES       -  You have 3 lives. Lose them all and\n" +
