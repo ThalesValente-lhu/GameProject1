@@ -55,7 +55,7 @@ class Card extends FlxSprite
 	{
 		super.update(elapsed);
 
-		if (matched && y > Viewport.HEIGHT)
+		if (matched && velocity.y > 0 && !isOnScreen())
 			kill();
 	}
 }

@@ -1,8 +1,6 @@
 package views.flipnfind;
 
-import flixel.FlxSprite;
 import flixel.group.FlxGroup;
-import models.flipnfind.GameAssets;
 
 // the table with the cards of one level and the frame around the selected card
 class BoardView extends FlxGroup
@@ -21,7 +19,7 @@ class BoardView extends FlxGroup
 		super();
 		this.cols = cols;
 
-		add(new FlxSprite(0, 0, GameAssets.BACKGROUND));
+		add(Viewport.background());
 
 		// bigger levels use smaller cards so everything fits on the screen
 		var size = Math.min(1, 600 / (rows * 172));

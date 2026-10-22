@@ -18,7 +18,7 @@ class LevelSelectUI extends FlxGroup
 	{
 		super();
 
-		add(new FlxSprite(0, 0, GameAssets.BACKGROUND));
+		add(Viewport.background());
 
 		var title = new FlxText(0, 40, Viewport.WIDTH, "FLIP N FIND", 64);
 		title.alignment = CENTER;

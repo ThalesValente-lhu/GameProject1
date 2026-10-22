@@ -3,6 +3,7 @@ package views.flipnfind;
 import flixel.group.FlxGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import models.flipnfind.MatchSession;
 
 class RulesUI extends FlxGroup
 {
@@ -15,7 +16,7 @@ class RulesUI extends FlxGroup
 		title.color = FlxColor.YELLOW;
 		add(title);
 
-		var rules = "- At the start, all the cards are shown for 2 seconds. Try to remember them!\n"
+		var rules = "- At the start, all the cards are shown for " + MatchSession.PEEK_SECONDS + " seconds. Try to remember them!\n"
 			+ "- Flip two cards at a time and try to find the matching animals.\n"
 			+ "- A matching pair gives 100 points. A wrong pair takes away 10 points.\n"
 			+ "- Clear all the cards before the time runs out.\n"

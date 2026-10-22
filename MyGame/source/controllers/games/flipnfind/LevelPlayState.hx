@@ -13,8 +13,7 @@ import views.flipnfind.Viewport;
 
 class LevelPlayState extends FlxState
 {
-	// how long all the cards are shown at the start, and how long a pair stays open
-	static inline var PEEK_SECONDS = 2;
+	// how long a pair stays open before it is checked
 	static inline var PAIR_SECONDS = 0.6;
 
 	var level:Int;
@@ -52,7 +51,7 @@ class LevelPlayState extends FlxState
 
 		// show all the cards at the start so the player can memorize them
 		board.flipAll();
-		new FlxTimer().start(PEEK_SECONDS, hideCards);
+		new FlxTimer().start(MatchSession.PEEK_SECONDS, hideCards);
 	}
 
 	override public function update(elapsed:Float)

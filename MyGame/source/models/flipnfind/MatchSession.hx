@@ -10,6 +10,9 @@ class MatchSession
 	public static inline var MISS_POINTS = 10;
 	public static inline var BONUS_PER_SECOND = 10;
 
+	// how long all the cards are shown at the start of a level (the timer starts after it)
+	public static inline var PEEK_SECONDS = 5;
+
 	public var level(default, null):Int;
 	public var cols(default, null):Int;
 	public var rows(default, null):Int;
