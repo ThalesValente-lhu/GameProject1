@@ -17,7 +17,7 @@ class MenuState extends FlxState {
 
         // Model Initialization
         gameList = [
-            new GameData("Flip n Find", LevelSelectState)
+            new GameData("Flip n Find", LevelSelectState),
             new GameData("Dark Maze",DarkMazeInitialState)
         ];
 
