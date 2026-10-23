@@ -4,18 +4,20 @@ import flixel.FlxG;
 import flixel.FlxState;
 import models.GameData;
 import views.MenuUI;
-import controllers.games.CardMemoryGame;
+import controllers.games.flipnfind.LevelSelectState;
 import views.darkMaze.DarkMazeInitialState;
 
 class MenuState extends FlxState {
     private var gameList:Array<GameData>;
 
     override public function create():Void {
+        FlxG.cameras.bgColor = 0xFF0D0B18;
+
         super.create();
 
         // Model Initialization
         gameList = [
-            new GameData("Card Match Memory", CardMemoryGame),
+            new GameData("Flip n Find", LevelSelectState)
             new GameData("Dark Maze",DarkMazeInitialState)
         ];
 
@@ -26,7 +28,6 @@ class MenuState extends FlxState {
 
     // Controller Action: Handle State Transition
     private function launchGame(targetState:Class<FlxState>):Void {
-        var nextState = Type.createInstance(targetState, []);
-        FlxG.switchState(nextState);
+        FlxG.switchState(() -> Type.createInstance(targetState, []));
     }
 }
