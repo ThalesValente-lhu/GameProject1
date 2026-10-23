@@ -18,7 +18,7 @@ class MenuState extends FlxState {
 
         // Model Initialization
         gameList = [
-            new GameData("Midnight Apothecary", MidnightApothecary)
+            new GameData("Midnight Apothecary", MidnightApothecary),
             new GameData("Flip n Find", LevelSelectState),
             new GameData("Dark Maze",DarkMazeInitialState)
         ];
