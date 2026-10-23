@@ -6,9 +6,16 @@ import flixel.util.FlxColor;
 
 class NavButton extends FlxButton {
     private var targetScale:Float = 1.0;
+    private var isHovered:Bool = false;
 
     public function new(X:Float, Y:Float, Text:String, OnClick:Void->Void, Width:Int = 240, Height:Int = 45) {
-        super(X, Y, Text, OnClick);
+        var wrappedClick = function() {
+            FlxG.sound.play("assets/sounds/menu/Select.wav", 0.7);
+            if (OnClick != null) {
+                OnClick();
+            }
+        }
+        super(X, Y, Text, wrappedClick);
 
         // Standardize graphic size and background color
         makeGraphic(Width, Height, 0xDD1B162E);
@@ -24,7 +31,16 @@ class NavButton extends FlxButton {
     override public function update(elapsed:Float):Void {
         super.update(elapsed);
 
-        if (overlapsPoint(FlxG.mouse.getWorldPosition())) {
+        var currentlyHovered = overlapsPoint(FlxG.mouse.getWorldPosition());
+
+        if (currentlyHovered && !isHovered) {
+            FlxG.sound.play("assets/sounds/menu/Hover.wav", 0.4);
+            isHovered = true;
+        } else if (!currentlyHovered) {
+            isHovered = false;
+        }
+
+        if (currentlyHovered) {
             targetScale = 1.05;
             label.color = FlxColor.fromRGB(0, 240, 255);
         } else {

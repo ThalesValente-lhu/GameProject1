@@ -105,7 +105,7 @@ class GemGame extends FlxState
 					ui.winText.alpha = 1;
 					new FlxTimer().start(3.0, function(timer:FlxTimer):Void {
 						FlxG.sound.music.stop();
-						FlxG.switchState(new MenuState());
+						FlxG.switchState(MenuState.new);
 
 					});
 				}
@@ -114,7 +114,7 @@ class GemGame extends FlxState
 		if (FlxG.keys.justPressed.R)
 			{
 				FlxG.sound.music.stop();
-				FlxG.switchState(new MenuState());
+				FlxG.switchState( MenuState.new);
 			}
 		
 		if(FlxG.keys.justPressed.T)

@@ -20,6 +20,10 @@ class MenuState extends FlxState {
 
         super.create();
 
+        if (FlxG.sound.music == null || !FlxG.sound.music.active) {
+            FlxG.sound.playMusic("assets/music/menu/ambient1.ogg", 0.5, true);
+        }
+
         // Model Initialization
         gameList = [
             new GameData("Midnight Apothecary", MidnightApothecary),
