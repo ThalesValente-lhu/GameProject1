@@ -1,0 +1,9 @@
+CS4478 Project 1 - Midnight Apothecary (Group 2: Memory Game)
+Student: <your name> (<student number>)
+
+My role in this part of the project:
+- <e.g. Gameplay programming: PlayState recipe/peek/brew loop, scoring, difficulty curve>
+- <e.g. Options screen: display/monitor, resolution, input device, audio>
+- <e.g. Art and sound assets, README/rules document>
+
+(Each group member submits the same zip with their own notepad.txt.)
