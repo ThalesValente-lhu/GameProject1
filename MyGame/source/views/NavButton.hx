@@ -14,7 +14,7 @@ class NavButton extends FlxButton {
         makeGraphic(Width, Height, 0xDD1B162E);
 
         // Format button text
-        label.setFormat(null, 13, FlxColor.fromRGB(220, 240, 255), CENTER);
+        label.setFormat(null, 18, FlxColor.fromRGB(220, 240, 255), CENTER);
         label.fieldWidth = Width;
 
         var border = new flixel.FlxSprite(X, Y);

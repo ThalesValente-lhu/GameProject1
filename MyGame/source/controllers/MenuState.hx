@@ -5,6 +5,7 @@ import flixel.FlxState;
 import models.GameData;
 import views.MenuUI;
 import controllers.games.flipnfind.LevelSelectState;
+import views.darkMaze.DarkMazeInitialState;
 
 class MenuState extends FlxState {
     private var gameList:Array<GameData>;
@@ -16,7 +17,8 @@ class MenuState extends FlxState {
 
         // Model Initialization
         gameList = [
-            new GameData("Flip n Find", LevelSelectState)
+            new GameData("Flip n Find", LevelSelectState),
+            new GameData("Dark Maze",DarkMazeInitialState)
         ];
 
         // View Initialization
