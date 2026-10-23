@@ -188,7 +188,6 @@ class DarkMazeState extends FlxState{
 		                timer -= elapsed;
 		            }
 
-		            // Restart
 		            if (timer <= 0 && DarkMazeProgress.lives > 0 && !playerWon){
 		                restart();
 		            }
