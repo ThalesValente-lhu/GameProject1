@@ -1,12 +1,16 @@
 package controllers;
 
+import models.GameData;
 import flixel.FlxG;
 import flixel.FlxState;
 import models.GameData;
 import views.MenuUI;
-import controllers.games.MidnightApothecary;
+
 import controllers.games.flipnfind.LevelSelectState;
 import views.darkMaze.DarkMazeInitialState;
+import controllers.games.gemGameClasses.GemGameInitial;
+import controllers.games.MidnightApothecary;
+
 
 class MenuState extends FlxState {
     private var gameList:Array<GameData>;
@@ -21,6 +25,8 @@ class MenuState extends FlxState {
             new GameData("Midnight Apothecary", MidnightApothecary),
             new GameData("Flip n Find", LevelSelectState),
             new GameData("Dark Maze",DarkMazeInitialState)
+            new GameData("Gem Game", GemGameInitial)
+
         ];
 
         // View Initialization
