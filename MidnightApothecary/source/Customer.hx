@@ -10,7 +10,7 @@ typedef CustomerData =
 	var lines:Array<String>;
 }
 
-/** The regulars who visit the shop. */
+
 class Customer
 {
 	public static final ALL:Array<CustomerData> = [

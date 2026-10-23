@@ -4,14 +4,10 @@ import flixel.FlxG;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.keyboard.FlxKey;
 
-/**
- * Central input mapping. During gameplay only the device chosen in Options
- * is listened to. Menus always accept every device so a player can never
- * get stuck (e.g. picking Gamepad with no controller plugged in).
- */
+
 class Controls
 {
-	/** When true, only the chosen device counts (set by PlayState). */
+	
 	public static var strict:Bool = false;
 
 	public static function mouseEnabled():Bool
@@ -65,14 +61,14 @@ class Controls
 		return key([RIGHT, D]) || (p != null && p.justPressed.DPAD_RIGHT);
 	}
 
-	// ----------------------------------------------------------- gameplay only
+	
 
 	static final NUMBER_KEYS:Array<Array<FlxKey>> = [
 		[ONE, NUMPADONE], [TWO, NUMPADTWO], [THREE, NUMPADTHREE], [FOUR, NUMPADFOUR],
 		[FIVE, NUMPADFIVE], [SIX, NUMPADSIX], [SEVEN, NUMPADSEVEN], [EIGHT, NUMPADEIGHT]
 	];
 
-	/** Returns 0-7 if a number key was just pressed, otherwise -1. */
+	
 	public static function ingredientKey():Int
 	{
 		if (!keysEnabled()) return -1;
@@ -99,7 +95,7 @@ class Controls
 		return key([SPACE]) || (p != null && p.justPressed.A);
 	}
 
-	/** Gamepad A adds the highlighted ingredient while brewing. */
+	
 	public static function padAdd():Bool
 	{
 		var p = pad();

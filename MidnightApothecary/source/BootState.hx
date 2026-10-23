@@ -3,7 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxState;
 
-/** Loads saved settings once, applies them, then goes to the title screen. */
+
 class BootState extends FlxState
 {
 	override public function create():Void

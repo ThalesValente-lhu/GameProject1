@@ -2,7 +2,7 @@ package;
 
 import flixel.util.FlxColor;
 
-/** One of the eight ingredients on the shelf. Index 0-7 maps to keys 1-8. */
+
 class Ingredient
 {
 	public static final ALL:Array<Ingredient> = [

@@ -7,7 +7,7 @@ import flixel.text.FlxText.FlxTextAlign;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
-/** End screen: final score, customers served, best streak, high score. */
+
 class GameOverState extends FlxState
 {
 	var nav:MenuNav;

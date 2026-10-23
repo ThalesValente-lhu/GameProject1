@@ -9,7 +9,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 
-/** One shelf tile: key number, icon and name. Click it, press its number, or select with a gamepad. */
+
 class IngredientButton extends FlxSpriteGroup
 {
 	public var index(default, null):Int;
@@ -31,7 +31,7 @@ class IngredientButton extends FlxSpriteGroup
 		this.onPick = onPick;
 		var ing = Ingredient.ALL[index];
 
-		bg = new FlxSprite(0, 0); // children use coordinates relative to the group
+		bg = new FlxSprite(0, 0);
 		bg.makeGraphic(w, h, FlxColor.TRANSPARENT, true);
 		add(bg);
 
@@ -48,7 +48,7 @@ class IngredientButton extends FlxSpriteGroup
 		redraw();
 	}
 
-	/** Centre of the icon, used as the launch point for the flying ingredient. */
+	
 	public function iconCenterX():Float
 		return icon.x + icon.width / 2;
 
@@ -71,7 +71,7 @@ class IngredientButton extends FlxSpriteGroup
 		return v;
 	}
 
-	/** Little squash animation as feedback. */
+	
 	public function bump():Void
 	{
 		FlxTween.cancelTweensOf(icon.scale);
