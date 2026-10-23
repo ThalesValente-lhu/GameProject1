@@ -14,6 +14,7 @@ class DarkMazeProgress{
     public static function resetProgress():Void{
         lives = MAX_LIVES;
         currentLevel = 1;
+        highestUnlockedLevel = 1;
     }
 
     public static function completeLevel():Void{

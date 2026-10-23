@@ -128,8 +128,7 @@ class DarkMazeState extends FlxState{
         nextLevelButton.label.fieldWidth = 150;
 		add(nextLevelButton);
 
-		menuButton = new FlxButton(400, 10, "Level Select", returnToMenu);
-		menuButton.visible = false;
+		menuButton = new FlxButton(500, 10, "Level Select", returnToMenu);
 		menuButton.setGraphicSize(150,25);
         menuButton.updateHitbox();
         menuButton.label.size = 15;
@@ -246,7 +245,6 @@ class DarkMazeState extends FlxState{
 	    timer = resultDuration;
 
 	    nextLevelButton.visible = false;
-    	menuButton.visible = false;
 
 	    if (won){
 	        timerText.text = "Level "+DarkMazeProgress.currentLevel+" complete!";
@@ -257,7 +255,6 @@ class DarkMazeState extends FlxState{
 	        }
 	        else{
 	        	timerText.text = "All levels completed!";
-            	menuButton.visible = true;
 	        }
 	    }
 	    else{
@@ -269,7 +266,7 @@ class DarkMazeState extends FlxState{
 	            timerText.text = "Game Over!";
 	            DarkMazeProgress.resetProgress();
 	            livesText.visible = false;
-	            menuButton.visible = true;
+	            menuButton.visible = false;
 	            timer = 5;
 	        }
 	        else{
@@ -286,7 +283,6 @@ class DarkMazeState extends FlxState{
 
 	    darkness.visible = false;
 	    nextLevelButton.visible = false;
-	    menuButton.visible = false;
 	    livesText.visible = true;
 	    playerWon = false;
 
