@@ -9,6 +9,7 @@ class Main extends Sprite
 	public function new()
 	{
 		super();
-		addChild(new FlxGame(800, 600, MenuState));
+		// 1280x720: Midnight Apothecary's screens are laid out for this size.
+		addChild(new FlxGame(1280, 720, MenuState));
 	}
 }
