@@ -24,9 +24,8 @@ class MenuState extends FlxState {
         gameList = [
             new GameData("Midnight Apothecary", MidnightApothecary),
             new GameData("Flip n Find", LevelSelectState),
-            new GameData("Dark Maze",DarkMazeInitialState)
-            new GameData("Gem Game", GemGameInitial)
-
+            new GameData("Dark Maze",DarkMazeInitialState),
+            new GameData("Gem Game", GemGameInitial),
         ];
 
         // View Initialization
