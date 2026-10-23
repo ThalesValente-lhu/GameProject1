@@ -9,6 +9,7 @@ import views.MenuUI;
 import controllers.games.flipnfind.LevelSelectState;
 import views.darkMaze.DarkMazeInitialState;
 import controllers.games.gemGameClasses.GemGameInitial;
+import controllers.games.MidnightApothecary;
 
 
 class MenuState extends FlxState {
@@ -21,6 +22,7 @@ class MenuState extends FlxState {
 
         // Model Initialization
         gameList = [
+            new GameData("Midnight Apothecary", MidnightApothecary),
             new GameData("Flip n Find", LevelSelectState),
             new GameData("Dark Maze",DarkMazeInitialState)
             new GameData("Gem Game", GemGameInitial)
