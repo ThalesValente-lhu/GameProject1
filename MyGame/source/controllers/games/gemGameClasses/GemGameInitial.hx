@@ -28,7 +28,7 @@ class GemGameInitial extends FlxState
 
         var premise = new FlxText(80, 85, FlxG.width - 160,
             "Can you find the matching pairs?\n\n" +
-            "Pick up a gem, memorize it and find it's match, " +
+            "Pick up a gem, memorize it and find its match, " +
             "the gems are scattered throughout the cave. " +
             "One mistake and you will have to find them again!",18
         );
