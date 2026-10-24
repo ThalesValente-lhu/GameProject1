@@ -1,0 +1,46 @@
+Flip-n-Find (by Srijan Ravisankar)
+
+- I designed and programmed Flip n Find, the card matching game in our memory game hub. I built it as its own HaxeFlixel project first, then moved it into the hub repo with the rest of the games.
+- You flip two cards at a time to find matching animals before the timer runs out. There are 10 levels, from a 3 x 2 grid up to 8 x 5, and all the cards are shown for 5 seconds at the start of each level.
+- I did the scoring (+100 for a pair, -10 for a wrong guess, plus a time bonus), level unlocking, and saving the best score for each level.
+- It works with a mouse, a keyboard or a gamepad, and the rules can be opened at any time.
+- The art and sound effects are free Kenney assets. Since all the cards are the same size, I put them in one sprite sheet instead of using TexturePacker.
+- To fit the hub's MVC structure, I split my code into models (levels, scoring, saving), views (cards and screens) and controllers (game states and controls). Everything is in its own flipnfind folders with uniquely named assets, and the game has its own save file so nothing clashes with the other games.
+- I also added small touches to make it feel good to play: matched cards jump off the table, wrong guesses shake the screen, cards shrink on bigger levels to fit, the timer turns red in the last 10 seconds, a white frame shows the selected card, and you can retry a level straight away.
+
+---
+
+Dark Maze (by Thales Valente)
+
+-Designed and programmed Dark Maze, the maze escaping game in our memory game. It was build using HaxeFlixel and then later moved to github.
+-You control a girl in a maze, travelling through the darkness to find the exit and escape.
+-There is a total of six levels, but the possibility of more is possible. I made it dynamic enough that all you need is a matrix to build the maze.
+-I got the sprites from royalty free websites and made alterations to work best with my game. Their credits are attached in the report.
+
+---
+Midnight Apothecary (by Kamakshi Borgohain)
+ 
+- I designed and programmed Midnight Apothecary, the potion shop memory game in our memory game hub. I started with a browser version of the idea, rebuilt it in HaxeFlixel then added it to the hub repo with the rest of the games.
+- A customer shows you their recipe for a few seconds, then it disappears and you brew it from memory by adding the ingredients in the same order. You have to serve it before the customer runs out of patience. A wrong or late potion costs one of your 3 lives.
+- I did the game loop (peek, brew, serve), checking the recipe against what you brewed, the scoring (points per ingredient, a speed bonus and a streak multiplier), the difficulty that gets harder as you serve more customers, and saving the high score.
+- For physics and collision, ingredients are thrown into the cauldron on a gravity arc using the projectile motion formula, and they splash and change the potion's colour when they hit the cauldron's mouth.
+- It works with a mouse, a keyboard or a gamepad. I made an Options screen and a pause menu so the player can change the display mode, resolution, monitor, input device and volume at any time, and the settings are saved.
+- I split the code into states for each screen (menu, options, game, game over), substates for the pop-ups (results and pause) and separate classes for settings, controls, ingredients and customers.
+
+---
+Gem Game (by Luca Asendorf)
+
+- I designed and programmed the gem matching game for our memory game hub. I first developed it as a standalone HaxeFlixel project so I could build and test the main mechanics before integrating it into the hub with the other games.
+- The player explores a cave looking for matching pairs of gems. When they interact with a gem,it disappears and they have to remember its type while exploring the cave to find the matching one. The game is completed once all of the pairs have been found.
+- The cave map was created using a tilemap split into separate layers for the ground, walls, obstacles, objectives and decorations. These layers are loaded from CSV files and I set up collision so the player cannot move through walls or obstacles. The tilemap I created using the program Tiled and a premade tileset.
+- I programmed movement, sprite animations and gem interactions for the player. The gems also use animated spritesheets, and their locations are randomized between a set of possible positions when the game starts.
+- I implemented a matching system, including remembering the previously selected gem, comparing it with the next gem by looking at each gem's type number, handling correct and incorrect pairs, and updating the player's progress as pairs are found.
+- I set up the camera to follow the player around the larger cave map and handled the draw order so decorations can appear in front of the player and also created a separate UI camera for the UI and instruction screen, then integrated the finished game into the main game hub.
+- The code is split into a few different classes. Level.hx for the loading of the tilemap. Player.hx for the player sprite, animations and movement. Objectives.hx to create and interact with the gems. GameUI.hx for the user interface elements and GemGame.hx to connect all these elements and run the main game logic.
+
+---
+Main Menu (by Ricardo Andrade Robledo)
+
+- I set up the base HaxeFlixel project and the MVC folder structure (models, views and controllers) that all of our games are built into.
+- I built the main menu: it lists every game, opens the one you pick, and uses a reusable button that grows and lights up when you hover over it.
+- I helped with the menu's look by adding the bobbing title and the floating synapse dots, and I added the background music and the sounds for hovering over and clicking buttons.
